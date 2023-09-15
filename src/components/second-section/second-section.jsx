@@ -218,13 +218,21 @@ const StyledBtn = styled.button`
   }
 `;
 
-const MsgFixedDiv = styled.div`
+const MsgFixedDiv = styled.span`
   display: inline-block;
   position: fixed;
   bottom: 20%;
-  left: 94%;
+  right: 5px;
   z-index: 99999999;
+  border: 2px solid white;
+  background: rgba(0 0 0);
+
+  width: fit-content;
   .msg-icon {
     font-size: 35px;
+    margin-top: 2px;
+  }
+  .msg-icon path {
+    color: white;
   }
 `;
