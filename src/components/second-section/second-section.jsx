@@ -6,6 +6,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useMediaPredicate } from "react-media-hook";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { BsArrowRightShort } from "react-icons/bs";
+import { BiMessageAlt } from "react-icons/bi";
 
 export const SecondSection = () => {
   const lessthan640 = useMediaPredicate(`(max-width:640px)`);
@@ -67,34 +68,38 @@ export const SecondSection = () => {
                 src="https://www.aesop.com/u1nb1km7t5q7/6fS7KvwhtoYYrcc6zwJilY/4e2cb9b2e23b98648aae11ae7d0fa4e0/Aesop_Fragrance_Ouranon_Eau_de_Parfum_50mL_Web_Front_Large_900x878px.png"
                 className="img"
               />
-              <FigCaption>
-                <p className="legend">Ouranon Eau de Parfum</p>
-                <p className="legend">Woody, spicy, resinous </p>
-              </FigCaption>
+
+              <div className="legend">
+                <p>Ouranon Eau de Parfum</p>
+                <p>Woody, spicy, resinous </p>
+              </div>
             </div>
             <div>
               <img
                 src="https://www.aesop.com/u1nb1km7t5q7/6fS7KvwhtoYYrcc6zwJilY/4e2cb9b2e23b98648aae11ae7d0fa4e0/Aesop_Fragrance_Ouranon_Eau_de_Parfum_50mL_Web_Front_Large_900x878px.png"
                 className="img"
               />
-              <FigCaption>
-                <p className="legend">Ouranon Eau de Parfum</p>
-                <p className="legend">Woody, spicy, resinous </p>
-              </FigCaption>
+              <div className="legend">
+                <p>Ouranon Eau de Parfum</p>
+                <p>Woody, spicy, resinous </p>
+              </div>
             </div>{" "}
             <div>
               <img
                 src="https://www.aesop.com/u1nb1km7t5q7/6fS7KvwhtoYYrcc6zwJilY/4e2cb9b2e23b98648aae11ae7d0fa4e0/Aesop_Fragrance_Ouranon_Eau_de_Parfum_50mL_Web_Front_Large_900x878px.png"
                 className="img"
               />
-              <FigCaption>
-                <p className="legend">Ouranon Eau de Parfum</p>
-                <p className="legend">Woody, spicy, resinous </p>
-              </FigCaption>
+              <div className="legend">
+                <p>Ouranon Eau de Parfum</p>
+                <p>Woody, spicy, resinous </p>
+              </div>
             </div>
           </Carousel>
         </RightContent>
       </Col>
+      <MsgFixedDiv>
+        <BiMessageAlt className="msg-icon" />
+      </MsgFixedDiv>
     </Row>
   );
 };
@@ -119,7 +124,7 @@ const RightContent = styled.div`
   height: 70vh;
   .slide {
     width: 350px;
-    height: 350px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,6 +144,28 @@ const RightContent = styled.div`
     height: 300px;
     background-size: cover;
     /* aspect-ratio: 16/10; */
+  }
+  .carousel .slide .legend {
+    background: white !important;
+    color: black !important;
+    opacity: 1 !important;
+    bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    font-size: 17px;
+  }
+  .carousel .slide .legend p {
+    font-size: 14px;
+    margin: 0px;
+  }
+  .carousel .slide .legend p:hover:first-child {
+    text-decoration: underline;
+  }
+  .carousel .slide .legend p:hover:first-child {
+    text-decoration: underline;
+  }
+  .carousel .slide .legend p:last-child {
+    margin-top: 7px;
   }
 `;
 const NextArrow = styled.div`
@@ -167,8 +194,11 @@ const FigCaption = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-
   background: white;
+  p {
+    background: white;
+    color: black;
+  }
 `;
 
 const StyledBtn = styled.button`
@@ -185,5 +215,16 @@ const StyledBtn = styled.button`
   } */
   .right-icon {
     font-size: 25px;
+  }
+`;
+
+const MsgFixedDiv = styled.div`
+  display: inline-block;
+  position: fixed;
+  bottom: 20%;
+  left: 94%;
+  z-index: 99999999;
+  .msg-icon {
+    font-size: 35px;
   }
 `;
