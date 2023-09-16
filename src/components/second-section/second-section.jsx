@@ -7,6 +7,7 @@ import { useMediaPredicate } from "react-media-hook";
 import { BsChevronRight, BsChevronLeft } from "react-icons/bs";
 import { BsArrowRightShort } from "react-icons/bs";
 import { BiMessageAlt } from "react-icons/bi";
+import { BsDashLg } from "react-icons/bs";
 
 export const SecondSection = () => {
   const lessthan640 = useMediaPredicate(`(max-width:640px)`);
@@ -28,7 +29,7 @@ export const SecondSection = () => {
         <RightContent>
           <Carousel
             showStatus={false}
-            showIndicators={false}
+            // showIndicators={false}
             showThumbs={false}
             // infiniteLoop={true}
 
@@ -46,6 +47,15 @@ export const SecondSection = () => {
                 </NextArrow>
               )
             }
+            renderIndicator={(clickHandler, isSelected, index) => (
+              <BsDashLg
+                onClick={() => clickHandler()}
+                style={{
+                  color: isSelected ? "black" : "gray",
+                  fontSize: "25px",
+                }}
+              />
+            )}
           >
             {!lessthan640 ? (
               <LeftContent>
@@ -121,7 +131,19 @@ const LeftContent = styled.div`
   }
 `;
 const RightContent = styled.div`
+  margin-top: 30px;
+  margin-left: 10%;
   height: 70vh;
+  padding-bottom: 40px;
+
+  .slider {
+    min-width: 20%;
+    max-width: 30%;
+    /* height: auto;
+    padding: 10px 0px; */
+    background: transparent;
+    gap: 25px;
+  }
   .slide {
     width: 350px;
     height: auto;
@@ -130,14 +152,19 @@ const RightContent = styled.div`
     align-items: center;
     background: white;
   }
-  .slider {
-    min-width: 20%;
-    max-width: 30%;
-    background: transparent;
-    gap: 25px;
-  }
   @media (max-width: 640px) {
-    margin-left: 10%;
+    margin-left: 0px;
+    .slider {
+      min-width: 100%;
+      max-width: unset;
+    }
+    .slide {
+      width: 100%;
+      height: 400px;
+    }
+  }
+  .control-dots {
+    bottom: -15px;
   }
   .img {
     width: auto;
@@ -183,21 +210,6 @@ const NextArrow = styled.div`
   .arrow-icon {
     color: white;
     font-size: 30px;
-  }
-`;
-
-const FigCaption = styled.div`
-  position: absolute;
-  bottom: -60px;
-  right: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background: white;
-  p {
-    background: white;
-    color: black;
   }
 `;
 
